@@ -2,7 +2,7 @@ import './style.css'
 import { merge } from './merge.js'
 
 document.querySelector('#app').innerHTML = `
-  <div id="app">
+  <div class="container">
     <div class="table-row" id="row-1">
       <div class="table-col">1</div>
       <div class="table-col">
