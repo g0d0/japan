@@ -97,8 +97,10 @@ const renderRows = async (rows, rerender, afterRenderCallback = null) => {
 
       if (colKey === "image") {
         const img = document.createElement("img");
-        img.setAttribute("src", "/noimage.jpeg");
+        img.setAttribute("src", "/noimage.webp");
         img.setAttribute("width", "80px");
+        img.setAttribute("height", "80px");
+        img.setAttribute("alt", "no image found");
         rowData[colKey] = img;
       }
 
