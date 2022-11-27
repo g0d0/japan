@@ -27,6 +27,8 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
+
+  background-color: #eff0f08d;
 }
 
 h1 {
@@ -40,11 +42,107 @@ h1 {
 }
 
 header {
-  background: url("/header.jpg") no-repeat center;
+  background: url("/header.webp") no-repeat center;
   background-size: cover;
   height: 230px;
   width: 100%;
   display: block;
+}
+
+.hide {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table tbody {
+  background-color: white;
+}
+
+table tbody tr:hover {
+  background-color: rgba(12, 163, 163, 0.2);
+}
+
+table tfoot tr td {
+  text-align: center;
+  padding: 2rem;
+}
+
+td, th {
+  border: 1px solid #d0d0d0;
+  border-right: 0;
+  border-left: 0;
+  text-align: left;
+  padding: 8px;
+  color: #000000;
+}
+
+thead .sort::after {
+  content: "▲";
+  color: rgb(151, 151, 151);
+}
+
+thead .sort.active::after {
+  color: black;
+}
+
+thead .sort:hover {
+  cursor: pointer;
+}
+
+thead tr:nth-child(1) {
+  background-color: #dddddd;
+}
+
+th:first-child, td:first-child {
+  border-left: 1px solid #d0d0d0;
+}
+
+th:last-child, td:last-child {
+  border-right: 1px solid #d0d0d0;
+}
+
+.flex {
+  display: flex;
+}
+
+.content-center {
+  place-content: center;
+}
+
+.mt-2 {
+  margin-top: 2em;
+}
+
+.load-more-button {
+  background-color: #1bbeb9;
+  color: white;
+}
+
+.load-more-button:hover {
+  background-color: #1794ca;
+}
+
+.search-container {
+  margin-bottom: 15px;
+}
+
+.search-container input {
+  width: 150px;
+  background-color: rgb(231, 231, 231);
+  border: 0px;
+  border-radius: 2rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.search-container input:focus {
+  width: 200px; 
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
 }
 
 .table-row {

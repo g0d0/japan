@@ -1,142 +1,49 @@
 import './style.css'
-import { merge } from './merge.js'
+import render from './src/render';
+import { loadAttractions } from './src/attractions';
 
 document.querySelector('#app').innerHTML = `
   <div class="container">
-    <div class="table-row" id="row-1">
-      <div class="table-col">1</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
+    <div class="search-container">
+      <input class="query" type="text" placeholder="Search">
     </div>
+  
+    <table id="attractions-table">
+      <thead>
+        <th>Image</th> 
+        <th class="sort" data-sort="name">Name</th>
+        <th class="sort" data-sort="theme">Theme</th>
+        <th class="sort" data-sort="type">Type</th>
+        <th class="sort" data-sort="cost">Cost</th>
+        <th class="sort" data-sort="est_cust">Estimated Customers</th>
+        <th class="sort" data-sort="maintenance_time">Maintenance Time</th>
+        <th class="sort" data-sort="workers">Workers Required</th>
+        <th class="sort active" data-sort="updated_at">Updated</th>
+      </thead>
+      <tbody>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="9"></td>
+        </tr>
+      </tfoot>
+    </table>
 
-    <div class="table-row" id="row-2">
-      <div class="table-col">2</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-3">
-      <div class="table-col">3</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-4">
-      <div class="table-col">4</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-5">
-      <div class="table-col">5</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-6">
-      <div class="table-col">6</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-7">
-      <div class="table-col">7</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-8">
-      <div class="table-col">8</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-9">
-      <div class="table-col">9</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
-    </div>
-
-    <div class="table-row" id="row-10">
-      <div class="table-col">10</div>
-      <div class="table-col">
-        <img class="img" src="/img.jpg" />
-      </div>
-      <div class="table-col">aaaa</div>
-      <div class="table-col">bbbb</div>
-      <div class="table-col">cccc</div>
-      <div class="table-col">dddd</div>
-      <div class="table-col">eeee</div>
-      <div class="table-col">ffff</div>
+    <div class="flex content-center mt-2">
+      <button
+        type="button"
+        id="load-more-button"
+        class="load-more-button"
+      >
+        Load More
+      </button>
     </div>
   </div>
 `;
 
-let arr1 = [];
-let arr2 = [];
+localStorage.setItem('query', '')
+localStorage.setItem('sortColumn', 'updated_at')
+localStorage.setItem('sortOrder', 'asc')
+localStorage.setItem('offset', 0)
 
-merge(arr1, arr2);
-
+render(loadAttractions());
