@@ -86,7 +86,14 @@ const registerEvents = () => {
     element.addEventListener("click", onSort);
   });
 
-  document.querySelector("input.query").addEventListener("keyup", onQuery);
+  document.querySelector("input.query").addEventListener("keyup", () => debounceFunction(onQuery, 250));
+};
+
+let timerId;
+const debounceFunction = function (func, delay) {
+	clearTimeout(timerId);
+
+	timerId = setTimeout(func, delay);
 };
 
 const renderRows = async (rows, rerender, afterRenderCallback = null) => {
