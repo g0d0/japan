@@ -50,15 +50,38 @@ const onQuery = (e) => {
   );
 };
 
+const checkSortCss = (element, sort, order) => {
+  if (element.dataset.sort === sort) {
+    element.classList.add('active')
+  }
+
+  if (element.dataset.sort !== sort) {
+    return element.classList.remove('active');
+  }
+
+  if (order === 'desc') {
+    element.classList.remove('asc');
+    return element.classList.add('desc')
+  }
+
+  element.classList.remove('desc');
+  return element.classList.add('asc')
+}
+
 const registerEvents = () => {
   document
     .getElementById("load-more-button")
     .addEventListener("click", onLoadMore);
 
+  const sort = window.localStorage.getItem('sortColumn')
+  const order = window.localStorage.getItem('sortOrder')
+
   document.querySelectorAll("#attractions-table tr th").forEach((element) => {
     if (!element.dataset.sort) {
       return;
     }
+
+    checkSortCss(element, sort, order);
 
     element.addEventListener("click", onSort);
   });

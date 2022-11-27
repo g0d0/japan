@@ -85,6 +85,11 @@ thead .sort::after {
   color: rgb(151, 151, 151);
 }
 
+thead .sort.desc::after {
+  content: "▼";
+  color: rgb(151, 151, 151);
+}
+
 thead .sort.active::after {
   color: black;
 }
