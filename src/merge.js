@@ -8,9 +8,11 @@ export function merge(data1, data2) {
 
   //your code - start
 
+  data = [...data1, ...data2];
+
   //your code - end
 
   const duration = Date.now() - start;
-  console.log("Merge duration: ", duration);
+  console.debug("Merge duration: ", duration);
   return data;
 }
