@@ -1,11 +1,50 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <title>Frontend Test App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <meta name="description" content="Simple page displaying an orderable and searchable datatable with attractions of parks">
   </head>
   <body>
     <header></header>
-    <div id="app" class="container"></div>
+    <div id="app" class="container">
+      <div class="container">
+        <div class="search-container">
+          <input class="query" type="text" placeholder="Search">
+        </div>
+
+        <table id="attractions-table">
+          <thead>
+            <th>Image</th> 
+            <th class="sort" data-sort="name">Name</th>
+            <th class="sort" data-sort="theme">Theme</th>
+            <th class="sort" data-sort="type">Type</th>
+            <th class="sort" data-sort="cost">Cost</th>
+            <th class="sort" data-sort="est_cust">Estimated Customers</th>
+            <th class="sort" data-sort="maintenance_time">Maintenance Time</th>
+            <th class="sort" data-sort="workers">Workers Required</th>
+            <th class="sort active" data-sort="updated_at">Updated</th>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="9"></td>
+            </tr>
+          </tfoot>
+        </table>
+    
+        <div class="flex content-center mt-2">
+          <button
+            type="button"
+            id="load-more-button"
+            class="load-more-button"
+          >
+            Load More
+          </button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
