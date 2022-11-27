@@ -118,12 +118,12 @@ th:last-child, td:last-child {
 }
 
 .load-more-button {
-  background-color: #1bbeb9;
+  background-color: #001b6b;
   color: white;
 }
 
 .load-more-button:hover {
-  background-color: #1794ca;
+  background-color: #0024c4;
 }
 
 .search-container {
