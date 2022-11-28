@@ -15,3 +15,4 @@ Questions:
 2. The provided TSV and JSON attractions look different from the template and also the image provided.
 3. What about the upload that exists in the image.
 4. Observer or Event based state management needs to be implemented. 
+
